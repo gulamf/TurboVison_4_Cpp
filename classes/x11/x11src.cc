@@ -2537,8 +2537,8 @@ TScreenFont256 *TScreenX11::ChooseClosestFont(unsigned fW, unsigned fH)
  else
    {
     unsigned target=fW*fH;
-    int dif1=abs(8*16-target);
-    int dif2=abs(10*20-target);
+    int dif1=abs(int(8*16-target));
+    int dif2=abs(int(10*20-target));
     if (dif1<dif2)
        nFont=&font8x16;
     else

@@ -381,10 +381,10 @@ Boolean TDisplay::searchClosestRes(TScreenResolution *res, int x,
  if (firstXMatch!=-1)
    {// Return the closest y that match x
     i=indexMin=firstXMatch;
-    minDif=abs(res[i].y-y);
+    minDif=abs(int(res[i].y-y));
     while (++i<cant && (int)res[i].x==(int)x)
       {
-       dif=abs(res[i].y-y);
+       dif=abs(int(res[i].y-y));
        if (dif<minDif)
          {
           minDif=dif;
@@ -396,11 +396,11 @@ Boolean TDisplay::searchClosestRes(TScreenResolution *res, int x,
    }
  // No x match, looks the one with minimum differences
  indexMin=0;
- minDif=abs(res[0].y-y)+abs((int)res[0].x-(int)x);
+ minDif=abs(int(res[0].y-y))+abs((int)res[0].x-(int)x);
  i=1;
  while (i<cant)
    {
-    dif=abs(res[i].y-y)+abs(res[i].x-x);
+    dif=abs(int(res[i].y-y)+abs(int(res[i].x-x)));
     if (dif<minDif)
       {
        minDif=dif;
